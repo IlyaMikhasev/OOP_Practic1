@@ -8,18 +8,16 @@ class Library: public ILibrary
 {
 public:
 	Library();
-	void AddBook(Book& book)override;
+	void AddBook(const Book& book)override;
 	void DeleteBook(int id)override;
-	void SetBook(int id) override;
-	void RegistrationUser(User& user)override;
-	void SearchBook(const std::string& title);
+	void SetBook(int id, const std::string& newContent) override;
+	void RegistrationUser(const User& user)override;
+	bool SearchBook(const std::string& title);
 	void ShowBooks();	
 	void Pop();
 private:
-	void ChekOutTheVisitor();
 	std::queue <User> _users;
 	std::map<int,Book> _books;
-	std::map<int, Book>::iterator  _it;
 	int _id;
 };
 

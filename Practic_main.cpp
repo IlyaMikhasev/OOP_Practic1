@@ -8,18 +8,24 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	Book b1("Достоевский", 1987, "Идиот");
 	Book b2("Мураками", 1995, "Охота на овец");
-	User U1("Alex",3);
-	User U2("Bob",2);
+	Book b3("Джек Лондон", 1867, "Мартин Иден");
+	Book b4("Братья Стругацие", 1977, "Понедельник начинается в субботу");
+	User U1("Alex");
+	User U2("Bob");
 	U1.RequestedBook(b1);
+	U1.RequestedBook(b3);
 	U2.RequestedBook(b2);
+	U2.RequestedBook(b4);
 	Library labrary;
 	labrary.AddBook(b1);
 	labrary.AddBook(b2);
+	labrary.AddBook(b3);
+	labrary.AddBook(b4);
 	labrary.RegistrationUser(U1);
 	labrary.RegistrationUser(U2);
 	labrary.ShowBooks();
-	labrary.SearchBook("Идиот");
-
-
+	labrary.Pop();
+	labrary.ShowBooks();
+	labrary.Pop();
 	return 0;
 }
